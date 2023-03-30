@@ -1,0 +1,36 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>TODOS LOS PRODUCTOS</title>
+    </head>
+    <body class="p-4">
+        
+        <h1 class="font-weight-bold container d-flex justify-content-center">INVENTARIO DE VIDEOJUEGOS "EL YERE YERE"</h1>
+        <a href="{% url 'add_product' %}" class="m-4 p-3 btn btn-success">Nuevo videojuego</a>
+
+        <div class="d-flex flex-wrap justify-content-around">
+        {% for producto in productos %}
+            <div class="card m-3" style="width: 18rem;">
+            <img src="{{ producto.img_product }}" class="card-img-top" alt="{{ producto.name_product }}" style="object-fit: contain;">
+                <div class="card-body">
+                    <h4 class="card-title">{{ producto.name_product }}</h4>
+                    <p class="card-text">Precio: ${{ producto.price_product }}</p>
+                    <p class="card-text">{{ producto.descrip_product }}</p>
+                    {% if producto.stock_product %}
+                    <p class="font-weight-bold text-success">Disponible</p>
+                    {% else %}
+                    <p class="font-weight-bold text-danger">Agotado</p>
+                    {% endif %}
+                    <a href="{% url 'product_view' id=producto.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-danger" onclick="return confirm('¿Seguro que quieres borrar este videojuego?')">Borrar</a>
+                </div>
+            </div>
+            
+        {% endfor %}
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>AGREGAR NUEVO PRODUCTO</title>
+</head>
+<body class="p-4">
+    <form method="post">
+        <h2>NUEVO VIDEOJUEGO:</h2>
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="name_product">Nombre del videojuego:</label>
+          <input type="text" class="form-control" id="name_product" name="name_product" required>
+        </div>
+        <div class="form-group">
+          <label for="price_product">Precio del videojuego:</label>
+          <input type="number" class="form-control" id="price_product" name="price_product" required>
+        </div>
+        <div class="form-group">
+          <label for="descrip_product">Descripción del videojuego:</label>
+          <textarea class="form-control" id="descrip_product" name="descrip_product" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="img_product">Imagen del videojuego:</label>
+          <input type="url" class="form-control" id="img_product" name="img_product" required>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="stock_product" name="stock_product">
+          <label class="form-check-label" for="stock_product">¿Está disponible?</label>
+        </div>
+        <button type="submit" class="btn btn-success">Agregar nuevo videojuego</button>
+      </form>
+      
+</body>
+</html>
