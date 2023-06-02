@@ -1,5 +1,5 @@
 #from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Producto
@@ -68,6 +68,13 @@ def deleteProducto(request, id):
     product = Producto.objects.get(id=id)
     product.delete()
     return redirect('/polls')
+
+
+
+def getProducts(request):
+    productos = Producto.objects.all()
+    data = { 'productos': list(productos.values()) }
+    return JsonResponse(data)
 
 
 

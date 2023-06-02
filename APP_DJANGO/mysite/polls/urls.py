@@ -5,7 +5,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('product-view/<int:id>/', views.updateProducto, name='product_view'),
     path('product/add/', views.addProducto, name='add_product'),
-    path('eliminar/<int:id>/', views.deleteProducto, name='eliminar_producto')
+    path('eliminar/<int:id>/', views.deleteProducto, name='eliminar_producto'),
+    path('getAllProducts', views.getProducts, name= 'obtener_productos')
 ]
 
 

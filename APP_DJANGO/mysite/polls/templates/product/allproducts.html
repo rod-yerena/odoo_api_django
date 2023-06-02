@@ -9,7 +9,11 @@
     <body class="p-4">
         
         <h1 class="font-weight-bold container d-flex justify-content-center">INVENTARIO DE VIDEOJUEGOS "EL YERE YERE"</h1>
-        <a href="{% url 'add_product' %}" class="m-4 p-3 btn btn-success">Nuevo videojuego</a>
+
+        <div class="container d-flex justify-content-center">
+            <a href="{% url 'add_product' %}" class="m-4 p-3 btn btn-success">Nuevo videojuego</a>
+            <a href="http://localhost:8080/create.php?secure_key=ed3fa1ce558e1c2528cfbaa3f99403" class="m-4 p-3 btn btn-warning">Migrar a Prestashop</a>
+        </div>
 
         <div class="d-flex flex-wrap justify-content-around">
         {% for producto in productos %}
